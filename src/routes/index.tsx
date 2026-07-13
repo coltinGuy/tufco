@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
-  Brick,
-  FloorTile,
-  Fence,
+  Hammer,
+  Construction,
+  Hammer,
   Scissors,
   Leaf,
   TreePine,
@@ -19,9 +19,9 @@ export const Route = createFileRoute('/')({
 })
 
 const services = [
-  { icon: Brick, name: 'Brick Laying', description: 'Precision installation of brick features including walkways, patios, edging, retaining walls and structural elements.' },
-  { icon: FloorTile, name: 'Paver Installation', description: 'Custom patios, driveways, and pathways using high-quality pavers designed for durability and visual appeal.' },
-  { icon: Fence, name: 'Fence Building', description: 'Proffesional constructiom of wood and composite fences for privacy, security, and property definition.' },
+  { icon: Hammer, name: 'Brick Laying', description: 'Precision installation of brick features including walkways, patios, edging, retaining walls and structural elements.' },
+  { icon: Construction, name: 'Paver Installation', description: 'Custom patios, driveways, and pathways using high-quality pavers designed for durability and visual appeal.' },
+  { icon: Hammer, name: 'Fence Building', description: 'Proffesional constructiom of wood and composite fences for privacy, security, and property definition.' },
   { icon: Sprout, name: 'Lawn Care', description: 'Mowing, edging, sod instillation, seeding and fertilization to keep your lawn thick and green.' },
   { icon: Leaf, name: 'Mulching', description: 'Fresh mulch beds that lock in moisture and boost curb appeal.' },
   { icon: TreePine, name: 'Garden Design', description: 'Custom planting plans tailored to your space and style.' },
