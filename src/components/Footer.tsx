@@ -13,7 +13,7 @@ export function Footer() {
         <div className="text-sm space-y-1">
           <div>Phone: (555) 123-4567</div>
           <div>Email: tufcolandscaping@gmail.com</div>
-          <div>Service Area: Greater Metro Area &amp; Surrounding Counties</div>
+          <div>Service Area: Greater Metro Vancouver Areas </div>
         </div>
         <div className="text-sm space-y-1">
           <Link to="/quote" className="block hover:text-white">
