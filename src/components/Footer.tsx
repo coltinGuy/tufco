@@ -11,7 +11,7 @@ export function Footer() {
           </p>
         </div>
         <div className="text-sm space-y-1">
-          <div>Phone: (555) 123-4567</div>
+          <div>Phone: (306) 231-0241</div>
           <div>Email: tufcolandscaping@gmail.com</div>
           <div>Service Area: Greater Metro Vancouver Area </div>
         </div>
