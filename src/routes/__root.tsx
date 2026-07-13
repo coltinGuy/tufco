@@ -14,12 +14,12 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Evergreen Landscaping | Outdoor Space Transformations',
+        title: 'TUFCO Landscaping | Outdoor Space Transformations',
       },
       {
         name: 'description',
         content:
-          'Professional landscaping services including lawn care, mulching, garden design, hedge trimming, seasonal cleanup, and pressure washing.',
+          'Professional landscaping services including Lawn Care, Brick Laying, Paver Installation, Mulching, Fence Building, Planting & Garden Installation, Retaining Walls, Garden Design, Hedge Trimming, Seasonal Cleanup, and General Landscaping & Maintenance.',
       },
     ],
   }),
