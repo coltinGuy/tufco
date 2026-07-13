@@ -48,7 +48,7 @@ const projects = [
 
     category: 'Seasonal Cleanup',
 
-    before: '/Overgrown_Before.jpeg',
+    before: '/Overgrown_Before.JPG',
 
     after: '/Overgrown_After.jpeg',
 
