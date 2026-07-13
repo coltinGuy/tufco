@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="bg-green-950 text-green-100 py-10 mt-20">
       <div className="max-w-7xl mx-auto px-5 flex flex-col md:flex-row justify-between gap-6">
         <div>
-          <div className="text-lg font-bold text-white mb-2">Evergreen Landscaping</div>
+          <div className="text-lg font-bold text-white mb-2">TUFCO Landscaping</div>
           <p className="text-sm text-green-300">
             Transforming outdoor spaces, one yard at a time.
           </p>
@@ -13,7 +13,7 @@ export function Footer() {
         <div className="text-sm space-y-1">
           <div>Phone: (555) 123-4567</div>
           <div>Email: tufcolandscaping@gmail.com</div>
-          <div>Service Area: Greater Metro Vancouver Areas </div>
+          <div>Service Area: Greater Metro Vancouver Area </div>
         </div>
         <div className="text-sm space-y-1">
           <Link to="/quote" className="block hover:text-white">
