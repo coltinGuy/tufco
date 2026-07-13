@@ -23,7 +23,7 @@ function BeforeAfterSlider({ project }: { project: string }) {
     <div className="rounded-2xl overflow-hidden bg-white shadow border">
       <div className="relative aspect-[4/3] select-none">
         <img
-          src="/placeholder.png"
+          src="/Overgrown_After.jpeg"
           alt={`After photo of ${project}`}
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -32,7 +32,7 @@ function BeforeAfterSlider({ project }: { project: string }) {
           style={{ width: `${position}%` }}
         >
           <img
-            src="/placeholder.png"
+            src="/Overgrown_Before.jpeg"
             alt={`Before photo of ${project}`}
             className="w-full h-full object-cover"
             style={{ width: `${100 * (100 / position || 0)}%`, maxWidth: 'none' }}
