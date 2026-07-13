@@ -58,7 +58,7 @@ function Home() {
       <section className="relative">
         <div className="relative h-[75vh] min-h-[480px] w-full overflow-hidden">
           <img
-            src="/placeholder.png"
+            src="/Vancouver.jpg"
             alt="A beautifully landscaped backyard with lush lawn, garden beds, and a stone patio"
             className="absolute inset-0 w-full h-full object-cover"
           />
