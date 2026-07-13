@@ -56,20 +56,20 @@ function Contact() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="text-green-700" size={22} />
-                <a href="mailto:hello@evergreenlandscaping.example" className="hover:underline">
-                  hello@evergreenlandscaping.example
+                <a href="mailto:tufcolandscaping@gmail.com" className="hover:underline">
+                  tufcolandscaping@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="text-green-700" size={22} />
-                <span>Serving the Greater Metro Area &amp; Surrounding Counties</span>
+                <span>Serving the Greater Metro Vancouver Area </span>
               </div>
             </div>
 
             <div className="rounded-2xl overflow-hidden border shadow h-80">
               <iframe
                 title="Service area map"
-                src="https://www.google.com/maps?q=Greater+Metro+Area&output=embed"
+                src="https://www.google.com/maps?q=Greater+Metro+Vancouver+Area&output=embed"
                 width="100%"
                 height="100%"
                 loading="lazy"
