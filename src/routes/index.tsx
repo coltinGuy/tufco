@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
+  Brick,
+  FloorTile,
+  Fence,
   Scissors,
   Leaf,
   TreePine,
