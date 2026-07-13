@@ -12,7 +12,7 @@ export function NavBar() {
     <header className="sticky top-0 z-50 bg-green-900 text-white shadow-md">
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-5 py-4">
         <Link to="/" className="text-xl font-bold tracking-tight">
-          Evergreen Landscaping
+          TUFCO Landscaping
         </Link>
         <div className="flex items-center gap-6 text-sm font-medium">
           {links.map((link) => (
