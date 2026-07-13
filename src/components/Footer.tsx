@@ -12,7 +12,7 @@ export function Footer() {
         </div>
         <div className="text-sm space-y-1">
           <div>Phone: (555) 123-4567</div>
-          <div>Email: hello@evergreenlandscaping.example</div>
+          <div>Email: tufcolandscaping@gmail.com</div>
           <div>Service Area: Greater Metro Area &amp; Surrounding Counties</div>
         </div>
         <div className="text-sm space-y-1">
@@ -25,7 +25,7 @@ export function Footer() {
         </div>
       </div>
       <div className="text-center text-xs text-green-400 mt-8">
-        © {new Date().getFullYear()} Evergreen Landscaping. All rights reserved.
+        © {new Date().getFullYear()} Tufco Landscaping. All rights reserved.
       </div>
     </footer>
   )
