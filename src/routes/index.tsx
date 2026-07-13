@@ -16,11 +16,14 @@ export const Route = createFileRoute('/')({
 })
 
 const services = [
-  { icon: Sprout, name: 'Lawn Care', description: 'Mowing, edging, and fertilization to keep your lawn thick and green.' },
+  { icon: Brick, name: 'Brick Laying', description: 'Precision installation of brick features including walkways, patios, edging, retaining walls and structural elements.' },
+  { icon: FloorTile, name: 'Paver Installation', description: 'Custom patios, driveways, and pathways using high-quality pavers designed for durability and visual appeal.' },
+  { icon: Fence, name: 'Fence Building', description: 'Proffesional constructiom of wood and composite fences for privacy, security, and property definition.' },
+  { icon: Sprout, name: 'Lawn Care', description: 'Mowing, edging, sod instillation, seeding and fertilization to keep your lawn thick and green.' },
   { icon: Leaf, name: 'Mulching', description: 'Fresh mulch beds that lock in moisture and boost curb appeal.' },
   { icon: TreePine, name: 'Garden Design', description: 'Custom planting plans tailored to your space and style.' },
   { icon: Scissors, name: 'Hedge Trimming', description: 'Clean, precise shaping for hedges, shrubs, and topiary.' },
-  { icon: Trees, name: 'Seasonal Cleanup', description: 'Leaf removal and bed prep for every season of the year.' },
+  { icon: Trees, name: 'Seasonal Cleanup', description: 'Leaf, removal and bed prep for every season of the year.' },
   { icon: Droplets, name: 'Pressure Washing', description: 'Driveways, patios, and siding restored to like-new condition.' },
 ]
 
