@@ -52,7 +52,7 @@ function Contact() {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Phone className="text-green-700" size={22} />
-                <a href="tel:+15551234567" className="hover:underline">(555) 123-4567</a>
+                <a href="tel:+13062310241" className="hover:underline">(306) 231-0241</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="text-green-700" size={22} />
