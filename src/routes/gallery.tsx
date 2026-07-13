@@ -32,7 +32,7 @@ function BeforeAfterSlider({ project }: { project: string }) {
           style={{ width: `${position}%` }}
         >
           <img
-            src="/Overgrown_Before.jpeg"
+            src="/Overgrown_Before.JPG"
             alt={`Before photo of ${project}`}
             className="w-full h-full object-cover"
             style={{ width: `${100 * (100 / position || 0)}%`, maxWidth: 'none' }}
