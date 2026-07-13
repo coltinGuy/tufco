@@ -1,4 +1,4 @@
-# Evergreen Landscaping
+# TUFCO Landscaping
 
 A marketing website for a landscaping business, built with TanStack Start, React 19, and Tailwind CSS, deployed on Netlify.
 
