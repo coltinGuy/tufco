@@ -115,17 +115,33 @@ className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 fo
 </div>
 
 <div>
-<label className="block font-semibold mb-2">
-Upload Photos (Optional)
-</label>
+  <label className="block font-semibold mb-3">
+    Upload Photos (Optional)
+  </label>
 
-<input
-type="file"
-name="photos"
-multiple
-accept="image/*"
-className="w-full"
-/>
+  <label
+    htmlFor="photos"
+    className="flex items-center justify-center w-full px-6 py-5 border-2 border-dashed border-green-600 rounded-xl cursor-pointer bg-green-50 hover:bg-green-100 transition"
+  >
+    <div className="text-center">
+      <div className="text-3xl mb-2">📷</div>
+      <p className="font-semibold text-green-700">
+        Click to Upload Photos
+      </p>
+      <p className="text-sm text-gray-500 mt-1">
+        JPG, PNG or HEIC • Select multiple photos
+      </p>
+    </div>
+  </label>
+
+  <input
+    id="photos"
+    type="file"
+    name="photos"
+    multiple
+    accept="image/*"
+    className="hidden"
+  />
 </div>
 
 <button
