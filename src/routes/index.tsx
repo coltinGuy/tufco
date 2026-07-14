@@ -29,11 +29,6 @@ const services = [
   { icon: Droplets, name: 'Pressure Washing', description: 'Driveways, patios, and siding restored to like-new condition.' },
 ]
 
-const beforeAfter = [
-  { project: 'Backyard Patio Refresh' },
-  { project: 'Front Yard Full Redesign' },
-  { project: 'Overgrown Lot Cleanup' },
-]
 
 const reviews = [
   {
