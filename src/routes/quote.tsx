@@ -3,37 +3,145 @@ import { NavBar } from '@/components/NavBar'
 import { Footer } from '@/components/Footer'
 
 export const Route = createFileRoute('/quote')({
-  component: Quote,
+component: Quote,
 })
 
 function Quote() {
-  return (
-    <>
-      <NavBar />
-      <section className="max-w-4xl mx-auto px-5 py-16">
-        <h1 className="text-4xl font-bold text-center mb-3">Get a Free Quote</h1>
-        <p className="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
-          Tell us about your project below and we&rsquo;ll get back to you with a free, no-obligation quote.
-          Include your name, phone, email, address, project type, budget, desired completion date, and any
-          photos of your yard.
-        </p>
-        <div className="rounded-2xl overflow-hidden border shadow">
-          {/* Replace this src with your own Google Form's embed URL (Send > Embed <> in the Google Form editor). */}
-          <iframe
-            title="Free Quote Request Form"
-            src="https://docs.google.com/forms/d/e/1FAIpQLSf_REPLACE_WITH_YOUR_FORM_ID/viewform?embedded=true"
-            width="100%"
-            height="1200"
-            className="w-full"
-          >
-            Loading form…
-          </iframe>
-        </div>
-        <p className="text-sm text-gray-400 mt-4 text-center">
-          Prefer to talk instead? <a href="/contact" className="underline hover:text-green-700">Contact us directly</a>.
-        </p>
-      </section>
-      <Footer />
-    </>
-  )
+return (
+<>
+<NavBar />
+
+<section className="max-w-3xl mx-auto px-5 py-16">
+<h1 className="text-4xl font-bold text-center mb-4">
+Get a Free Quote
+</h1>
+
+<p className="text-center text-gray-500 mb-10">
+Tell us about your landscaping project and we'll get back to you as
+soon as possible with a free, no-obligation estimate.
+</p>
+
+<form
+name="quote"
+method="POST"
+data-netlify="true"
+encType="multipart/form-data"
+className="bg-white rounded-2xl shadow-lg border p-8 space-y-6"
+>
+<input type="hidden" name="form-name" value="quote" />
+
+<div>
+<label className="block font-semibold mb-2">
+Full Name
+</label>
+<input
+type="text"
+name="name"
+required
+className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+/>
+</div>
+
+<div>
+<label className="block font-semibold mb-2">
+Phone Number
+</label>
+<input
+type="tel"
+name="phone"
+required
+className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+/>
+</div>
+
+<div>
+<label className="block font-semibold mb-2">
+Email Address
+</label>
+<input
+type="email"
+name="email"
+required
+className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+/>
+</div>
+
+<div>
+<label className="block font-semibold mb-2">
+Property Address
+</label>
+<input
+type="text"
+name="address"
+className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+/>
+</div>
+
+<div>
+<label className="block font-semibold mb-2">
+Service Needed
+</label>
+
+<select
+name="service"
+className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+>
+<option>General Landscaping</option>
+<option>Fence Installation</option>
+<option>Fence Repair</option>
+<option>Retaining Wall</option>
+<option>Artificial Turf</option>
+<option>Sod Installation</option>
+<option>Garden Installation</option>
+<option>Mulch</option>
+<option>Rock Work</option>
+<option>Pressure Washing</option>
+<option>Yard Cleanup</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label className="block font-semibold mb-2">
+Tell Us About Your Project
+</label>
+
+<textarea
+name="message"
+rows={6}
+placeholder="Describe what you're looking to have done..."
+className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+/>
+</div>
+
+<div>
+<label className="block font-semibold mb-2">
+Upload Photos (Optional)
+</label>
+
+<input
+type="file"
+name="photos"
+multiple
+accept="image/*"
+className="w-full"
+/>
+</div>
+
+<button
+type="submit"
+className="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-4 rounded-xl transition"
+>
+Get My Free Quote
+</button>
+
+<div className="text-center text-sm text-gray-500 pt-2">
+✓ Free Estimates • ✓ Fully Insured • ✓ Serving the Lower Mainland
+</div>
+</form>
+</section>
+
+<Footer />
+</>
+)
 }
