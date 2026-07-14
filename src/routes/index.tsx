@@ -94,39 +94,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-green-50 py-20">
-        <div className="max-w-7xl mx-auto px-5">
-          <h2 className="text-3xl font-bold text-center mb-3">Before &amp; After</h2>
-          <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
-            See the real difference our crews make. Explore the full gallery for more transformations.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {beforeAfter.map((item) => (
-              <div key={item.project} className="rounded-2xl overflow-hidden bg-white shadow">
-                <div className="grid grid-cols-2">
-                  <div className="relative">
-                    <img src="/placeholder.png" alt={`Before photo of ${item.project}`} className="w-full aspect-square object-cover" />
-                    <span className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">Before</span>
-                  </div>
-                  <div className="relative">
-                    <img src="/placeholder.png" alt={`After photo of ${item.project}`} className="w-full aspect-square object-cover" />
-                    <span className="absolute top-2 left-2 bg-green-700/90 text-white text-xs px-2 py-1 rounded">After</span>
-                  </div>
-                </div>
-                <div className="p-4 font-semibold">{item.project}</div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              to="/gallery"
-              className="inline-block border-2 border-green-700 text-green-700 hover:bg-green-700 hover:text-white transition-colors font-semibold px-6 py-3 rounded-full"
-            >
-              View Full Gallery
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <section className="max-w-7xl mx-auto px-5 py-20">
         <h2 className="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
