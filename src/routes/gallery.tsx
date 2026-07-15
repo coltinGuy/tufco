@@ -71,7 +71,7 @@ const projects = [
 const additionalPhotos = [
   '/Backyard_full.jpeg',
   '/BenchPatio.jpeg',
-  '/PaverPatiojpeg',
+  '/PaverPatio.jpeg',
   '/Arbour.jpeg',
   '/Arbour2.jpeg',
   '/ArbourFin.jpeg',
