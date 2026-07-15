@@ -220,12 +220,12 @@ function PhotoCarousel() {
 
       <div className="relative max-w-5xl mx-auto">
 
-        <div className="overflow-hidden rounded-2xl shadow border bg-white">
+        <div className="overflow-hidden rounded-2xl shadow border bg-white flex items-center justify-center min-h-[400px]">
 
           <img
             src={additionalPhotos[index]}
             alt="TUFCO landscaping project"
-            className="w-full aspect-[16/9] object-cover"
+            className="w-full max-h-[700px] object-contain bg-white"
           />
 
         </div>
