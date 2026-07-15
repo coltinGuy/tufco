@@ -68,7 +68,17 @@ const projects = [
 
 ]
 
-
+const additionalPhotos = [
+  '/Backyard_full.jpeg',
+  '/BenchPatio.jpeg',
+  '/PaverPatiojpeg',
+  '/Arbour.jpeg',
+  '/Arbour2.jpeg',
+  '/ArbourFin.jpeg',
+  '/WEED.jpeg',
+  '/SODStrip.jpeg',
+  
+]
 
 function BeforeAfterSlider({ project }: { project: typeof projects[0] }) {
 
@@ -231,6 +241,7 @@ function Gallery() {
           ))}
 
         </div>
+        <PhotoCarousel />
 
       </section>
 
