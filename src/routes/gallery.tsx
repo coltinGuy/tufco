@@ -190,7 +190,68 @@ function BeforeAfterSlider({ project }: { project: typeof projects[0] }) {
 
 }
 
+function PhotoCarousel() {
 
+  const [index, setIndex] = useState(0)
+
+  const nextPhoto = () => {
+    setIndex((prev) =>
+      prev === additionalPhotos.length - 1 ? 0 : prev + 1
+    )
+  }
+
+  const previousPhoto = () => {
+    setIndex((prev) =>
+      prev === 0 ? additionalPhotos.length - 1 : prev - 1
+    )
+  }
+
+
+  return (
+    <section className="mt-20">
+
+      <h2 className="text-3xl font-bold text-center mb-3">
+        More Recent Work
+      </h2>
+
+      <p className="text-center text-gray-500 mb-10">
+        Explore more landscaping projects completed by TUFCO.
+      </p>
+
+      <div className="relative max-w-5xl mx-auto">
+
+        <div className="overflow-hidden rounded-2xl shadow border bg-white">
+
+          <img
+            src={additionalPhotos[index]}
+            alt="TUFCO landscaping project"
+            className="w-full aspect-[16/9] object-cover"
+          />
+
+        </div>
+
+
+        <button
+          onClick={previousPhoto}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 text-2xl"
+        >
+          ‹
+        </button>
+
+
+        <button
+          onClick={nextPhoto}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 text-2xl"
+        >
+          ›
+        </button>
+
+
+      </div>
+
+    </section>
+  )
+}
 
 function Gallery() {
 
