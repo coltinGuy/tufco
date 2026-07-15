@@ -8,128 +8,183 @@ export const Route = createFileRoute('/quote')({
 })
 
 function Quote() {
+
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
-const handleSubmit = async (e:any) => {
+  const [submitted, setSubmitted] = useState(false)
 
-e.preventDefault()
-
-const form = e.currentTarget
-
-const data = {
-name: form.name.value,
-phone: form.phone.value,
-email: form.email.value,
-address: form.address.value,
-service: form.service.value,
-message: form.message.value,
-
-photos: selectedFiles
-.map(file => file.name)
-.join(", ")
-}
+  const [fields, setFields] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+    service: 'General Landscaping',
+    message: '',
+  })
 
 
-await fetch("/.netlify/functions/send-quote", {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
 
-method:"POST",
+    setFields({
+      ...fields,
+      [e.target.name]: e.target.value
+    })
 
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify(data)
-
-})
+  }
 
 
-window.location.href="/thank-you"
+  const handleSubmit = (e: React.FormEvent) => {
 
-}
+    e.preventDefault()
+
+
+    const emailBody = `
+New TUFCO Landscaping Quote Request
+
+Name:
+${fields.name}
+
+Phone:
+${fields.phone}
+
+Email:
+${fields.email}
+
+Address:
+${fields.address}
+
+Service Needed:
+${fields.service}
+
+Project Details:
+${fields.message}
+
+
+Photos:
+Please attach photos of the project area before sending this email.
+    `
+
+
+    const gmailLink =
+      `https://mail.google.com/mail/?view=cm&fs=1&to=tufcolandscaping@gmail.com&su=${encodeURIComponent(
+        'New TUFCO Landscaping Quote Request'
+      )}&body=${encodeURIComponent(emailBody)}`
+
+
+    window.open(gmailLink, '_blank')
+
+
+    setSubmitted(true)
+
+  }
+
+
   return (
     <>
       <NavBar />
 
       <section className="max-w-3xl mx-auto px-5 py-16">
+
         <h1 className="text-4xl font-bold text-center mb-4">
           Get a Free Quote
         </h1>
 
+
         <p className="text-center text-gray-500 mb-10">
-          Tell us about your landscaping project and we'll get back to you with a free, no-obligation estimate.
+          Tell us about your landscaping project and we'll help bring your
+          outdoor vision to life.
         </p>
 
-        {/* Hidden Netlify form */}
-        <form name="quote" data-netlify="true" hidden>
-          <input type="hidden" name="form-name" value="quote" />
-          <input type="text" name="name" />
-          <input type="text" name="phone" />
-          <input type="email" name="email" />
-          <input type="text" name="address" />
-          <input type="text" name="service" />
-          <textarea name="message"></textarea>
-          <input type="file" name="photos" />
-        </form>
+
+        {submitted ? (
+
+          <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
+
+            <h2 className="text-2xl font-bold text-green-800 mb-3">
+              Almost Done!
+            </h2>
+
+            <p className="text-gray-700">
+              Your email draft has been opened. Please attach your project
+              photos and press send. We’ll get back to you shortly with your
+              free quote.
+            </p>
+
+          </div>
+
+
+        ) : (
 
         <form
-          name="quote"
-          method="POST"
-          data-netlify="true"
-          action="/thank-you"
-          encType="multipart/form-data"
+          onSubmit={handleSubmit}
           className="bg-white rounded-2xl shadow-lg border p-8 space-y-6"
         >
-          <input type="hidden" name="form-name" value="quote" />
+
 
           <div>
             <label className="block font-semibold mb-2">
               Full Name
             </label>
+
             <input
-              type="text"
               name="name"
               required
-              placeholder="John Smith"
-              className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={fields.name}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-4 py-3"
             />
           </div>
+
+
 
           <div>
             <label className="block font-semibold mb-2">
               Phone Number
             </label>
+
             <input
-              type="tel"
               name="phone"
               required
-              placeholder="(604) 555-1234"
-              className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={fields.phone}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-4 py-3"
             />
           </div>
+
+
 
           <div>
             <label className="block font-semibold mb-2">
               Email Address
             </label>
+
             <input
               type="email"
               name="email"
               required
-              placeholder="name@email.com"
-              className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={fields.email}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-4 py-3"
             />
           </div>
+
+
 
           <div>
             <label className="block font-semibold mb-2">
               Property Address
             </label>
+
             <input
-              type="text"
               name="address"
-              placeholder="123 Main Street"
-              className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={fields.address}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-4 py-3"
             />
           </div>
+
+
 
           <div>
             <label className="block font-semibold mb-2">
@@ -138,8 +193,11 @@ window.location.href="/thank-you"
 
             <select
               name="service"
-              className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={fields.service}
+              onChange={handleChange}
+              className="w-full border rounded-lg px-4 py-3"
             >
+
               <option>General Landscaping</option>
               <option>Fence Installation</option>
               <option>Fence Repair</option>
@@ -147,116 +205,131 @@ window.location.href="/thank-you"
               <option>Retaining Wall</option>
               <option>Lawn Care</option>
               <option>Garden Design</option>
-              <option>Mulching</option>
-              <option>Pressure Washing</option>
               <option>Yard Cleanup</option>
               <option>Other</option>
+
             </select>
+
           </div>
 
+
+
           <div>
+
             <label className="block font-semibold mb-2">
               Tell Us About Your Project
             </label>
 
+
             <textarea
               name="message"
-              rows={6}
-              placeholder="Describe the work you'd like completed..."
-              className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              rows={5}
+              value={fields.message}
+              onChange={handleChange}
+              placeholder="Describe what you would like done..."
+              className="w-full border rounded-lg px-4 py-3"
             />
+
           </div>
 
+
+
           <div>
+
             <label className="block font-semibold mb-3">
               Upload Photos (Optional)
             </label>
 
+
             <label
               htmlFor="photos"
-              className="flex items-center justify-center w-full px-6 py-5 border-2 border-dashed border-green-600 rounded-xl cursor-pointer bg-green-50 hover:bg-green-100 transition"
+              className="block text-center cursor-pointer border-2 border-dashed border-green-600 rounded-xl p-6 bg-green-50 hover:bg-green-100"
             >
-              <div className="text-center">
-                <div className="text-4xl mb-2">📷</div>
 
-                <p className="font-semibold text-green-700 text-lg">
-                  Click to Upload Photos
-                </p>
-
-                <p className="text-sm text-gray-500 mt-1">
-                  JPG, PNG or HEIC • Multiple photos allowed
-                </p>
+              <div className="text-4xl mb-2">
+                📷
               </div>
+
+              <p className="font-semibold text-green-700">
+                Click to Upload Photos
+              </p>
+
+              <p className="text-sm text-gray-500">
+                Photos will be attached manually in the email
+              </p>
+
             </label>
+
 
             <input
               id="photos"
               type="file"
-              name="photos"
               multiple
               accept="image/*"
               className="hidden"
-              onChange={(e) => {
-                if (e.target.files) {
+
+              onChange={(e)=>{
+
+                if(e.target.files){
                   setSelectedFiles(Array.from(e.target.files))
                 }
+
               }}
             />
 
+
+
             {selectedFiles.length > 0 && (
-              <div className="mt-4 rounded-xl border border-green-200 bg-green-50 p-4">
-                <h3 className="font-semibold text-green-700 mb-3">
+
+              <div className="mt-4 bg-green-50 border border-green-200 rounded-xl p-4">
+
+                <h3 className="font-semibold text-green-700 mb-2">
                   ✅ Uploaded Photos
                 </h3>
 
-                <div className="space-y-2">
-                  {selectedFiles.map((file) => (
-                    <div
-                      key={file.name}
-                      className="bg-white border rounded-lg px-3 py-2 flex justify-between items-center"
-                    >
-                      <span className="text-gray-700 truncate">
-                        📷 {file.name}
-                      </span>
 
-                      <span className="text-xs text-green-700 font-semibold">
-                        Ready
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                {selectedFiles.map(file => (
+
+                  <div
+                    key={file.name}
+                    className="bg-white rounded-lg px-3 py-2 mb-2 text-sm"
+                  >
+                    📷 {file.name}
+                  </div>
+
+                ))}
+
               </div>
+
             )}
+
           </div>
-  <button
+
+
+
+          <button
             type="submit"
-            className="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-4 rounded-xl transition text-lg"
+            className="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-4 rounded-xl transition"
           >
-            Submit Quote Request
+            Get Free Quote
           </button>
 
-          <div className="rounded-xl bg-green-50 border border-green-200 p-4 text-center">
-            <p className="font-semibold text-green-700 mb-2">
-              What happens next?
-            </p>
 
-            <p className="text-sm text-gray-600">
-              Once you submit your request, our team will review your project,
-              look over any uploaded photos, and contact you as soon as possible
-              with your free quote.
-            </p>
+
+          <div className="text-center text-sm text-gray-500">
+            ✓ Free Estimates • ✓ Fully Insured • ✓ Serving the Greater Vancouver Area
           </div>
 
-          <div className="text-center text-sm text-gray-500 pt-2">
-            ✓ Free Estimates &nbsp;&nbsp;•&nbsp;&nbsp;
-            ✓ Fully Insured &nbsp;&nbsp;•&nbsp;&nbsp;
-            ✓ Serving the Greater Vancouver Area
-          </div>
 
         </form>
+
+        )}
+
       </section>
 
+
       <Footer />
+
     </>
   )
-}        
+}
