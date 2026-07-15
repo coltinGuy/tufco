@@ -9,7 +9,42 @@ export const Route = createFileRoute('/quote')({
 
 function Quote() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+const handleSubmit = async (e:any) => {
 
+e.preventDefault()
+
+const form = e.currentTarget
+
+const data = {
+name: form.name.value,
+phone: form.phone.value,
+email: form.email.value,
+address: form.address.value,
+service: form.service.value,
+message: form.message.value,
+
+photos: selectedFiles
+.map(file => file.name)
+.join(", ")
+}
+
+
+await fetch("/.netlify/functions/send-quote", {
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify(data)
+
+})
+
+
+window.location.href="/thank-you"
+
+}
   return (
     <>
       <NavBar />
