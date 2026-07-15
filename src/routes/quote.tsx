@@ -35,11 +35,9 @@ function Quote() {
 
 
   const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault()
 
-    e.preventDefault()
-
-
-    const emailBody = `
+  const emailBody = `
 New TUFCO Landscaping Quote Request
 
 Name:
@@ -61,23 +59,18 @@ Project Details:
 ${fields.message}
 
 
-Photos:
-Please attach photos of the project area before sending this email.
-    `
+Please attach photos of the project area before sending.
+  `
 
 
-    const gmailLink =
-      `https://mail.google.com/mail/?view=cm&fs=1&to=tufcolandscaping@gmail.com&su=${encodeURIComponent(
-        'New TUFCO Landscaping Quote Request'
-      )}&body=${encodeURIComponent(emailBody)}`
+  const mailtoLink =
+    `mailto:tufcolandscaping@gmail.com?subject=${encodeURIComponent(
+      "New TUFCO Landscaping Quote Request"
+    )}&body=${encodeURIComponent(emailBody)}`
 
 
-    window.open(gmailLink, '_blank')
-
-
-    setSubmitted(true)
-
-  }
+  window.location.href = mailtoLink
+}
 
 
   return (
